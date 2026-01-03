@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>CI/CD Deployment</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🚀 CI/CD Deployment Successful</h1>
+    <p>Your website is live using Docker & GitHub Actions</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Deployment Info</h2>
+      <p><strong>Status:</strong> Live</p>
+      <p><strong>Deployed at:</strong> <span id="time"></span></p>
+    </section>
+
+    <section class="card">
+      <h2>Tech Stack</h2>
+      <ul>
+        <li>Node.js + Express</li>
+        <li>Docker</li>
+        <li>Nginx</li>
+        <li>GitHub Actions</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 | Deployed by Dark 😎</p>
+  </footer>
+
+  <script>
+    document.getElementById("time").innerText = new Date().toLocaleString();
+  </script>
+</body>
+</html>

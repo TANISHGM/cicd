@@ -1,9 +1,18 @@
 const express = require("express");
-const app = express();
+const path = require("path");
 
-app.get("/", (req, res) => {
-  res.send(`<h1>🚀 Happy deloyedment via CI/CD!</h1><p>${new Date()}</p>`);
-  
+const app = express();
+const PORT = 3000;
+
+// Serve static files
+app.use(express.static(path.join(__dirname, "public")));
+
+// Health check (very important for DevOps)
+app.get("/health", (req, res) => {
+  res.status(200).json({ status: "UP", time: new Date() });
 });
 
-app.listen(3000, () => console.log("App running on port 3000"));
+// Start server
+app.listen(PORT, () => {
+  console.log(`🚀 Server running on port ${PORT}`);
+});
