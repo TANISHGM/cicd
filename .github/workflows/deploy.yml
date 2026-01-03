@@ -1,18 +1,20 @@
-name: CI-CD Pipeline
+name: Deploy App
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ main ]
 
 jobs:
-  build:
-    runs-on: self-hosted
+  deploy:
+    runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
+    - uses: actions/checkout@v3
 
-      - name: Build & Deploy
-        run: |
-          docker compose down
-          docker compose up -d --build
+    - name: Deploy
+      run: |
+        ssh user@SERVER_IP "
+        cd app &&
+        git pull origin main &&
+        docker compose up -d --build
+        "
