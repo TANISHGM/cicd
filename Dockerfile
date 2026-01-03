@@ -1,5 +1,6 @@
 FROM node:18
 WORKDIR /app
-COPY app/ .
+COPY . .
 RUN npm install
-CMD ["node","index.js"]
+EXPOSE 3000
+CMD ["node", "index.js"]
